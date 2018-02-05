@@ -11,10 +11,21 @@
     <script src="main.js"></script>
   </head>
   <body>
+    <header class="wrapper">
+      <h1><a href="{% url 'articles:list'%}">Django-Blog</a></h1>
+      <nav>
+        <ul>
+          <li>
+            <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div class="wrapper">
-      <h1><a href="{% url 'articles:list'%}">probar link</a></h1>
       {% block content %}
-
       {% endblock %}
     </div>
   </body>
